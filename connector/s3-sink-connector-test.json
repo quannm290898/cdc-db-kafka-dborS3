@@ -1,0 +1,21 @@
+{
+  "name": "s3-sink-connector-test",
+  "config": {
+    "connector.class": "io.confluent.connect.s3.S3SinkConnector",
+    "tasks.max": "1",
+    "topics": "cdc.transaction",
+    "s3.region": "us-east-1",
+    "s3.bucket.name": "cdc-postgresql",
+    "s3.part.size": 5242880,
+    "flush.size": 1000,
+    "store.url": "http://<ip_adress>:9000",
+    "storage.class": "io.confluent.connect.s3.storage.S3Storage",
+    "format.class": "io.confluent.connect.s3.format.json.JsonFormat",
+    "schema.compatibility": "NONE",
+    "aws.access.key.id": "<pass_word>",
+    "aws.secret.access.key": "<pass_word>",
+    "behavior.on.null.values": "ignore",
+    "partitioner.class": "io.confluent.connect.storage.partitioner.FieldPartitioner",
+    "partition.field.name": "ts_ms"
+  }
+}

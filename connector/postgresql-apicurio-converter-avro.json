@@ -1,0 +1,30 @@
+{
+  "name": "postgres-source-connector-avro",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+    "database.hostname": "<ip_adress>",
+    "database.port": "5432",
+    "database.user": "cdc_user",
+    "database.password": "<pass_word>",
+    "database.dbname": "cdc_example",
+    "database.server.name": "dbserver1",
+    "plugin.name": "pgoutput",
+    "publication.name": "my_publication",
+    "schema.include.list": "public",
+    "table.include.list": "public.users,public.orders",
+    "topic.prefix": "cdc",
+    "transforms": "route",
+    "transforms.route.type": "org.apache.kafka.connect.transforms.RegexRouter",
+    "transforms.route.regex": "([^.]+)\\.([^.]+)\\.([^.]+)",
+    "transforms.route.replacement": "$1.$3",
+    "key.converter": "io.apicurio.registry.utils.converter.AvroConverter",
+    "key.converter.apicurio.registry.url": "http://<ip_adress>:8085/apis/registry/v2",
+    "key.converter.apicurio.registry.auto-register": "true",
+    "key.converter.apicurio.registry.find-latest": "true",
+    "value.converter": "io.apicurio.registry.utils.converter.AvroConverter",
+    "value.converter.apicurio.registry.url": "http://<ip_adress>:8085/apis/registry/v2",
+    "value.converter.apicurio.registry.auto-register": "true",
+    "value.converter.apicurio.registry.find-latest": "true"
+  }
+}

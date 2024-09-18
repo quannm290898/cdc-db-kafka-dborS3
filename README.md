@@ -1,5 +1,6 @@
 ## Data Change Capture from database Postgresql to MySQL/S3
 ![Architecture](images/cdc-db-kakfa-s3-architecture.png)
+*https://garystafford.medium.com/building-open-data-lakes-with-debezium-and-apache-hudi-c3370d3f86fb*
 ### Configuring PostgreSQL for CDC
 - Enable Logical Replication: Modify parameters in file `postgresql.conf`:
 ` vim /usr/local/var/postgresql@14/postgresql.conf`

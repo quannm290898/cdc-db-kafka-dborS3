@@ -1,4 +1,5 @@
 ## Data Change Capture from database Postgresql to MySQL/S3
+![Architecture](images/cdc-db-kafka-s3.jpg)
 ### Configuring PostgreSQL for CDC
 - Enable Logical Replication: Modify parameters in file `postgresql.conf`:
 ` vim /usr/local/var/postgresql@14/postgresql.conf`
